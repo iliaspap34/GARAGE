@@ -95,7 +95,7 @@
     background: transparent; color: var(--muted); font-size: 20px; line-height: 1;
   }
   #panel .close:hover, #panel .close:focus-visible { background: rgba(255,255,255,.1); color: var(--white); outline: none; }
-  #panel .body { padding: 6px 14px 14px; }
+  #panel .body { padding: 0 14px 16px; }
   #panel .body p { margin: 10px 0 0; font-size: .9rem; line-height: 1.55; color: #d4e3f2; }
   #panel .actions { padding: 0 14px 14px; }
   #panel a.btn { display: block; text-align: center; padding: 9px 12px; border-radius: 8px; background: var(--blue); color: var(--white); text-decoration: none; font-weight: 600; font-size: .86rem; }
@@ -144,9 +144,9 @@
 const BUSINESS_NAME = "";               // όνομα επιχείρησης (εμφανίζεται δίπλα στο λογότυπο). Κενό = δεν εμφανίζεται.
 const PANORAMA_FILE = "garage.jpg";     // σχετική διαδρομή: το garage.jpg στον ίδιο φάκελο με αυτό το αρχείο
 
-// Εικόνα 13262 × 1867: ταινία 360° οριζόντια. Κάθετο εύρος = 360 × 1867 / 13262 ≈ 50,7°.
+// Εικόνα 13580 × 1817: ταινία 360° οριζόντια. Κάθετο εύρος = 360 × 1817 / 13580 ≈ 48,2°.
 // ΕΚΤΙΜΗΣΗ: ισχύει αν το πανόραμα κάνει πλήρη κύκλο 360°. Αν το Hugin δείχνει άλλο Field of View, άλλαξε HAOV/VAOV.
-const HAOV = 360, VAOV = 50.7, V_OFFSET = 0;
+const HAOV = 360, VAOV = 48.2, V_OFFSET = 0;
 
 const START_YAW = 0, START_PITCH = 0, START_HFOV = 95;
 const MIN_HFOV = 30, MAX_HFOV = 120;
@@ -158,10 +158,14 @@ const MIN_HFOV = 30, MAX_HFOV = 120;
 const HOTSPOTS = [
   // yaw 0 = η αρχική θέαση (κέντρο της εικόνας), +90 = δεξιά, 180 = πίσω, −90 = αριστερά.
   // pitch 0 = στο ύψος του ορίζοντα. ΕΚΤΙΜΗΣΗ θέσης: προσαρμόστε με ?pick=1 για ακρίβεια πάνω στο αντικείμενο.
-  { id: "info-1", pitch: 0, yaw: 0,   title: "Είσοδος του σπιτιού στην οδό Πινδάρου", text: "", link: null },
-  { id: "info-2", pitch: 0, yaw: 90,  title: "Πρώτη θέση parking",                    text: "", link: null },
-  { id: "info-3", pitch: 0, yaw: 180, title: "Κεντρική είσοδος",                      text: "", link: null },
-  { id: "info-4", pitch: 0, yaw: -90, title: "Δεύτερη θέση parking",                  text: "", link: null }
+  { id: "info-1", pitch: 0, yaw: 0,   title: "Είσοδος του σπιτιού στην οδό Πινδάρου",
+    text: "Από εδώ γίνεται η πρόσβαση στο σπίτι, από την πλευρά της οδού Πινδάρου.", link: null },
+  { id: "info-2", pitch: 0, yaw: 90,  title: "Πρώτη θέση parking",
+    text: "Η πρώτη θέση στάθμευσης του χώρου, δίπλα στην είσοδο του γκαράζ.", link: null },
+  { id: "info-3", pitch: 0, yaw: 180, title: "Κεντρική είσοδος",
+    text: "Η κεντρική είσοδος του χώρου, από όπου γίνεται η κύρια πρόσβαση.", link: null },
+  { id: "info-4", pitch: 0, yaw: -90, title: "Δεύτερη θέση parking",
+    text: "Η δεύτερη θέση στάθμευσης του χώρου, στην άλλη πλευρά του γκαράζ.", link: null }
 ];
 
 /* ============================================================
